@@ -1,0 +1,5 @@
+<h1> All Sneakers </h1>
+
+<% @sneakers.each do |sneaker| %>
+    <p><%= link_to(sneaker.brand_and_colors, sneaker_path(sneaker.id)) %> <%= number_to_currency(sneaker.price) %></p> 
+ <%end%>
