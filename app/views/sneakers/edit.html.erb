@@ -1,0 +1,14 @@
+<h1> Edit Sneaker Here ! </h1>
+
+
+<%= form_for(@sneaker) do |f|%> 
+    <p> <%= f.label(:brand) %>
+     <%= f.text_field :brand %></P>
+     <p><%= f.label(:price ) %>
+     <%= f.number_field :price, step: 0.01 %></p>
+     <p><%= f.label(:condition) %>
+     <%= f.text_field :condition %></p>
+     <p><%= f.label(:color) %>
+     <%= f.text_field :color %></p>
+     <%= f.submit %>
+  <% end %>

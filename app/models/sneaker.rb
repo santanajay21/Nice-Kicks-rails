@@ -1,7 +1,7 @@
 class Sneaker < ApplicationRecord
     #relationships 
     #validations
-
+    validates :price ,presence: true
 
     #add custome reader /writer methods 
 

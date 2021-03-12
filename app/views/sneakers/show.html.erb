@@ -3,3 +3,5 @@
 <h2><%= @sneaker.brand_and_colors%></h2>
 <h3>Condition: <%= @sneaker.condition %> </h3>
 <h3>Price: <%=number_to_currency (@sneaker.price)%> </h3>
+
+<%= link_to "delete", sneaker_path(@sneaker), method: 'delete' %> 
