@@ -10,6 +10,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <body class="l-box">
+  <div>
+    <%= link_to "All Sneakers", sneakers_path %> |
+    <%= link_to "Create a New Sneaker", new_sneaker_path %>  |
+    <%= link_to "All Brands", brands_path %> |
+    <%= link_to "Create a New Brand", new_brand_path %>
+  </div>
+  
+
   <body>
     <%= yield %>
   </body>

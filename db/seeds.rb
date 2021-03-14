@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-Sneaker.create([{brand:'Nike' ,condition:'New' ,price: 345.00, color: 'Pearl White'},
-{brand:'Addidas' ,condition:'Used' ,price: 135.00, color: 'white'},
-{brand:'Puma' ,condition:'New' ,price: 95.00, color: 'Red'} ])
+b = Brand.create(name:'nike', year_founded: 1952)
+Sneaker.create([{brand: b ,condition:'New' ,price: 345.00, color: 'Pearl White'},
+{brand: b ,condition:'Used' ,price: 135.00, color: 'Off White'},
+{brand: b ,condition:'New' ,price: 95.00, color: ' Hot Red'} ])

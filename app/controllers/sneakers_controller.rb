@@ -16,6 +16,8 @@ class SneakersController < ApplicationController
 
     def new 
         @sneaker = Sneaker.new
+
+        @sneaker.build_brand
     end 
 
     def create 
@@ -51,7 +53,7 @@ class SneakersController < ApplicationController
     private 
 
     def sneaker_params
-        params.require(:sneaker).permit(:brand,:price,:condition,:color)
+        params.require(:sneaker).permit(:brand,:price,:condition,:color, :brand_id, brand_attributes: [:name, :year_founded])
     end 
 
 end 

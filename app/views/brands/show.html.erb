@@ -1,0 +1,10 @@
+<h1><%= @brand.name %> </h1>
+
+<h2> Year Founded: <%= @brand.year_founded %> </h2>
+
+<h2>Display this brand's sneakers here: </h2>
+
+<% @brand.sneakers.each do |shoe| %>
+    <p><%= link_to(sneaker.brand_id_and_color, sneaker_path(sneaker.id) ) %> <%= number_to_currency(sneaker.price)%></p>
+
+ <% end %>

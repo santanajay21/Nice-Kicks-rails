@@ -1,0 +1,33 @@
+<h1> Insert A Brand </h1>
+
+
+<% if @brand.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
+
+    <ul>
+      <% @brand.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %> 
+
+
+<%= form_for @brand do |f| %>
+    <%= f.label(:name) %> 
+    <%= f.text_field :name %><br></br>
+    <%= f.label(:year_founded) %> 
+    <%= f.number_field :year_founded %><br></br>
+    <h3>And add shoes:</h3>
+    <%= f.fields_for :shoes do |s|  %>
+      <%= s.label "Price" %> 
+      <%= s.number_field :price, step: 0.01, min: 0 %><br></br>
+      <%= s.label(:color) %> 
+      <%= s.text_field :color %><br></br>
+      <%= s.label(:condition) %> 
+      <%= s.text_field :condition, required: true %><br></br>
+    <hr>
+      <% end %> 
+    <%= f.submit %> 
+<% end %>

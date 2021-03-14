@@ -1,14 +1,25 @@
 <h1> Edit Sneaker Here ! </h1>
 
 
+
+<% if @sneaker.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@sneaker.errors.count, "error") %> prohibited this shoe from being saved:</h2>
+    <ul>
+      <% @sneaker.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for(@sneaker) do |f|%> 
-    <p> <%= f.label(:brand) %>
-     <%= f.text_field :brand %></P>
-     <p><%= f.label(:price ) %>
-     <%= f.number_field :price, step: 0.01 %></p>
-     <p><%= f.label(:condition) %>
-     <%= f.text_field :condition %></p>
-     <p><%= f.label(:color) %>
-     <%= f.text_field :color %></p>
+     <%= f.label(:price ) %>
+     <%= f.number_field :price, step: 0.01 %><br><br/>
+     <%= f.label(:condition) %>
+     <%= f.text_field :condition %><br><br/>
+     <%= f.label(:color) %>
+     <%= f.text_field :color %><br><br/>
      <%= f.submit %>
   <% end %>
