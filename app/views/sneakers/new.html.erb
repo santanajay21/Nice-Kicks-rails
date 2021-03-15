@@ -1,36 +1,5 @@
 <h1> Add a New Shoe Here! </h1>
 
-<% if @sneaker.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@sneaker.errors.count, "error") %> prohibited this sneaker from being saved:</h2>
 
-    <ul>
-      <% @sneaker.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-
-
-<%= form_for(@sneaker) do |f|%> 
-    <%= f.label "price" %>
-    <%= f.number_field :price, step: 0.01 %><br><br/>
-    <%= f.label "condition" %>
-    <%= f.text_field :condition %><br><br/>
-    <%= f.label "color" %>
-    <%= f.text_field :color %><br><br/>
-    <h3> Select a brand: </h3>
-    <%= f.collection_select :brand_id, Brand.all, :id, :name %>
-
-    <h3>Or create a new brand: </h3>
-    <%= f.fields_for :brand do |b| %>
-      <%= b.label(:name) %> 
-      <%= b.text_field :name %><br></br>
-      <%= b.label(:year_founded) %> 
-      <%= b.number_field :year_founded %><br></br>
-    <% end %>
-
-    <%= f.submit %>
- <% end %>
+   #render the form here 
+   <%= render partial: "form" %>

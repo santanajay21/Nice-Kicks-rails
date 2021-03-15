@@ -2,6 +2,7 @@ class Sneaker < ApplicationRecord
     #relationships 
     #validations
     belongs_to :brand 
+    #accepts_nested_attributes_for :brand
 
     def brand_attributes=(hash_of_attributes)
         # hash_of_attributes = {"name"=>"Puma", "year_founded"=>"1971"}

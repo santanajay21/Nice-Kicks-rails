@@ -4,7 +4,7 @@
 
 <h2>Display this brand's sneakers here: </h2>
 
-<% @brand.sneakers.each do |shoe| %>
-    <p><%= link_to(sneaker.brand_id_and_color, sneaker_path(sneaker.id) ) %> <%= number_to_currency(sneaker.price)%></p>
+<% @brand.sneakers.each do |sneaker| %>
+    <p><%= link_to(sneaker.brand_id_and_colors, sneaker_path(sneaker.id) ) %> <%= number_to_currency(sneaker.price)%></p>
 
  <% end %>

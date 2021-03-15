@@ -10,7 +10,7 @@ class BrandsController < ApplicationController
 
     def new
         @brand = Brand.new
-        3.times { @brand.shoes.build } #has_many
+        3.times { @brand.sneakers.build } 
     end
 
     def create

@@ -1,5 +1,7 @@
 class SneakersController < ApplicationController
 
+    layout "sneaker"
+    
     def index
         @sneakers = Sneaker.all 
     end 
