@@ -1,4 +1,7 @@
-<h1> All Sneakers </h1>
+<%= display_index_header %>
+
+
+
 
 <% @sneakers.each do |sneaker| %>
     <p><%= link_to(sneaker.brand_id_and_colors, sneaker_path(sneaker.id)) %> <%= number_to_currency(sneaker.price) %></p> 

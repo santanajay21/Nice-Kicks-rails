@@ -3,7 +3,12 @@ class SneakersController < ApplicationController
     layout "sneaker"
     
     def index
-        @sneakers = Sneaker.all 
+        #check if the request is a nested route 
+        if params[:brand_id] && @brand = Brand.find(params[:brand_id])
+            @sneakers = @brand.sneakers
+        else
+            @sneakers = Sneaker.all 
+        end 
     end 
 
 
@@ -17,13 +22,21 @@ class SneakersController < ApplicationController
     end 
 
     def new 
-        @sneaker = Sneaker.new
-
-        @sneaker.build_brand
+        if params[:brand_id] && @brand = Brand.find(params[:brand_id])
+            #instantiate a sneaker with the brand already assigend 
+            @sneaker = Sneaker.new(brand_id: params[:brand_id])
+        else
+            @sneaker = Sneaker.new
+            @sneaker.build_brand
+        end
     end 
 
     def create 
         @sneaker = Sneaker.new(sneaker_params)
+        if params[:brand_id] #if its nested 
+            @brand = Brand.find(params[:brand_id])# give it an @brand variable 
+        end
+
         if @sneaker.save 
             redirect_to sneakers_path 
         else
