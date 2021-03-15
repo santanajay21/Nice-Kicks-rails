@@ -14,11 +14,17 @@
   <div>
     <%= link_to "All Sneakers", sneakers_path %> |
     <%= link_to "All Brands", brands_path %> |
-    <%= link_to "Create a New Brand", new_brand_path %>
+    <%= link_to "Create a New Brand", new_brand_path %> |
+    <% if !logged_in? %>
+    <%= button_to "Log in with Google", "/auth/google_oauth2" %>
+    <% else %>
+    <%= link_to "Logout", logout_path, method: 'delete' %>
+
+    <% end %>
   </div>
   
 
-  <body>
+  <div><%= flash[:message]%></div>
     <%= yield %>
   </body>
 </html>
