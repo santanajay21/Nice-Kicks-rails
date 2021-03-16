@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# Foobar
+ Rails is coding tool that helps you use ruby code and html. With Rails generators you can create an app in half the time it would normally take you. 
 
-* Ruby version
+## Installation
 
-* System dependencies
+For information on installation use the link below.
+https://guides.rubyonrails.org/
+## Usage
 
-* Configuration
+Best for creating rails web applications. 
+must need all gems inorder for the application, and server to work properly.
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)

@@ -10,11 +10,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="l-box">
+  <body class="container-fluid bg-secondary bg-gradient w-50 text-center badge font-monospace fs-1">
   <div>
-    <%= link_to "All Sneakers", sneakers_path %> |
-    <%= link_to "Create a New Sneaker", new_sneaker_path %>  |
-    <%= link_to "All Brands", brands_path %> |
+    <%= link_to "All Sneakers", sneakers_path, class: "btn btn-primary"%> 
+    <%= link_to "Create a New Sneaker", new_sneaker_path, class: "btn btn-primary" %>  
+    <%= link_to "All Brands", brands_path, class: "btn btn-primary" %> 
     
   </div>
   

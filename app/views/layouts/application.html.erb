@@ -8,20 +8,25 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   </head>
 
-  <body class="l-box">
+  <body class="container-fluid bg-secondary bg-gradient w-100 text-center badge font-monospace fs-1">
+  <img src="https://ca-times.brightspotcdn.com/dims4/default/237480f/2147483647/strip/true/crop/1600x900+0+0/resize/840x473!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Ff8%2F13%2F2ed27928e04ca0d7de1297aed837%2Fla-1549478959-pncrievwul-snap-image" class="img-fluid" alt="...">
   <div>
-    <%= link_to "All Sneakers", sneakers_path %> |
-    <%= link_to "All Brands", brands_path %> |
-    <%= link_to "Create a New Brand", new_brand_path %> |
+    <h1> NiceKicks  </h1>
+    <%= link_to "All Sneakers", sneakers_path, class: "btn btn-primary" %> 
+    <%= link_to "All Brands", brands_path, class: "btn btn-primary"  %> 
+    <%= link_to "Create a New Brand", new_brand_path, class: "btn btn-primary" %> 
     <% if !logged_in? %>
-    <%= button_to "Log in with Google", "/auth/google_oauth2" %>
+   <p> <%= button_to "Log in with Google", "/auth/google_oauth2", class: "btn btn-light" %></p>
     <% else %>
     <%= link_to "Logout", logout_path, method: 'delete' %>
 
     <% end %>
   </div>
+
   
 
   <div><%= flash[:message]%></div>
