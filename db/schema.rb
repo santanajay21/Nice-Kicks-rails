@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_152035) do
+ActiveRecord::Schema.define(version: 2021_03_31_145059) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
     t.integer "year_founded"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "sneaker_id"
+    t.string "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sneakers", force: :cascade do |t|

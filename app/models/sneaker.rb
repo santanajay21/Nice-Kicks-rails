@@ -2,6 +2,8 @@ class Sneaker < ApplicationRecord
     #relationships 
     #validations
     belongs_to :brand 
+    has_many :favorites
+    has_many :users , through: :favorites
     #accepts_nested_attributes_for :brand
 
     def brand_attributes=(hash_of_attributes)
