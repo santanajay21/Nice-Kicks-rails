@@ -1,7 +1,8 @@
 class Sneaker < ApplicationRecord
     #relationships 
     #validations
-    belongs_to :brand 
+    belongs_to :brand
+    belongs_to :user
     has_many :favorites
     has_many :users , through: :favorites
     #accepts_nested_attributes_for :brand
@@ -26,12 +27,12 @@ class Sneaker < ApplicationRecord
 
 
     def brand_id_and_colors
-        "#{self.brand_id.try(:name)} - #{self.color} "
+        "#{self.brand_id.try(:name)} - #{self.color} "  
 
     end
 
     def self.order_by_price 
-        self.order(price: :desc)
+        self.order(price: :desc)                       #scope method ,getting specific information from the db
 
     end 
 

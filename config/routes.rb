@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # get '/sneakers' => 'sneakers#index' , as: 'sneakers'
   get 'sneakers/most_expensive' => 'sneakers#most_expensive'
   # get '/sneakers/:id' => 'sneakers#show', as: 'sneaker'
-  resources :sneakers, only: [:new, :index, :create] #writes 8 routes for us 
+  resources :sneakers, only: [:new, :index, :create] #writes 7 routes for us 
 
 
   resources :brands do 

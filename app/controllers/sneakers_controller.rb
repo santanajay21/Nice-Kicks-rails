@@ -1,11 +1,12 @@
 class SneakersController < ApplicationController
-    before_action :redirect_if_not_logged_in
-
+    before_action :redirect_if_not_logged_in   
+    before_action :find_brand_id , only: [:index , :new]
+    before_action :find_that_sneaker , only: [:show , :edit , :update , :destroy]
     layout "sneaker"
     
     def index
         #check if the request is a nested route 
-        if params[:brand_id] && @brand = Brand.find(params[:brand_id])
+        if find_brand_id#params[:brand_id] && @brand = Brand.find(params[:brand_id])
             @sneakers = @brand.sneakers
         else
             @sneakers = Sneaker.all 
@@ -14,7 +15,7 @@ class SneakersController < ApplicationController
 
 
     def show
-        @sneaker = Sneaker.find(params[:id])
+        find_that_sneaker#@sneaker = Sneaker.find(params[:id])
     end 
 
     def most_expensive
@@ -23,7 +24,7 @@ class SneakersController < ApplicationController
     end 
 
     def new 
-        if params[:brand_id] && @brand = Brand.find(params[:brand_id])
+        if find_brand_id#params[:brand_id] && @brand = Brand.find(params[:brand_id])
             #instantiate a sneaker with the brand already assigend 
             @sneaker = Sneaker.new(brand_id: params[:brand_id])
         else
@@ -46,11 +47,11 @@ class SneakersController < ApplicationController
     end
 
     def edit 
-        @sneaker = Sneaker.find(params[:id])
+        find_that_sneaker#@sneaker = Sneaker.find(params[:id])
     end 
 
     def update 
-        @sneaker = Sneaker.find(params[:id])
+        find_that_sneaker#@sneaker = Sneaker.find(params[:id])
         @sneaker.update(sneaker_params)
         if @sneaker.valid?
             redirect_to sneakers_path
@@ -61,7 +62,7 @@ class SneakersController < ApplicationController
 
 
     def destroy
-        @sneaker = Sneaker.find(params[:id])
+        find_that_sneaker#@sneaker = Sneaker.find(params[:id])
         @sneaker.destroy 
         redirect_to sneakers_path
     end

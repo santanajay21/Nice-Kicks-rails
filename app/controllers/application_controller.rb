@@ -7,4 +7,16 @@ class ApplicationController < ActionController::Base
         redirect_to '/login' if !logged_in?
 
     end
+
+
+
+    def find_brand_id
+        params[:brand_id] && @brand = Brand.find(params[:brand_id])
+    end 
+
+    def find_that_sneaker
+        @sneaker = Sneaker.find(params[:id])
+    end 
+
+
 end
