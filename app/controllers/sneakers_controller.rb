@@ -6,7 +6,7 @@ class SneakersController < ApplicationController
     
     def index
         #check if the request is a nested route 
-        if find_brand_id#params[:brand_id] && @brand = Brand.find(params[:brand_id])
+        if @brand#params[:brand_id] && @brand = Brand.find(params[:brand_id])
             @sneakers = @brand.sneakers
         else
             @sneakers = Sneaker.all 
@@ -15,7 +15,7 @@ class SneakersController < ApplicationController
 
 
     def show
-        find_that_sneaker#@sneaker = Sneaker.find(params[:id])
+        @sneaker#@sneaker = Sneaker.find(params[:id])
     end 
 
     def most_expensive
@@ -24,7 +24,7 @@ class SneakersController < ApplicationController
     end 
 
     def new 
-        if find_brand_id#params[:brand_id] && @brand = Brand.find(params[:brand_id])
+        if @brand
             #instantiate a sneaker with the brand already assigend 
             @sneaker = Sneaker.new(brand_id: params[:brand_id])
         else
@@ -34,11 +34,12 @@ class SneakersController < ApplicationController
     end 
 
     def create 
-        @sneaker = Sneaker.new(sneaker_params)
+        @sneaker = current_user.sneakers.build(sneaker_params)
+
         if params[:brand_id] #if its nested 
             @brand = Brand.find(params[:brand_id])# give it an @brand variable 
         end
-
+    
         if @sneaker.save 
             redirect_to sneakers_path 
         else
@@ -47,11 +48,11 @@ class SneakersController < ApplicationController
     end
 
     def edit 
-        find_that_sneaker#@sneaker = Sneaker.find(params[:id])
+       @sneaker 
     end 
 
     def update 
-        find_that_sneaker#@sneaker = Sneaker.find(params[:id])
+        @sneaker
         @sneaker.update(sneaker_params)
         if @sneaker.valid?
             redirect_to sneakers_path
@@ -62,7 +63,7 @@ class SneakersController < ApplicationController
 
 
     def destroy
-        find_that_sneaker#@sneaker = Sneaker.find(params[:id])
+        @sneaker
         @sneaker.destroy 
         redirect_to sneakers_path
     end

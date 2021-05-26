@@ -8,6 +8,7 @@ class FavoritesController < ApplicationController
 
   # GET /favorites/1 or /favorites/1.json
   def show
+    @favorites = Favorite.find(params[:id])
   end
 
   # GET /favorites/new
@@ -17,21 +18,18 @@ class FavoritesController < ApplicationController
 
   # GET /favorites/1/edit
   def edit
+    @favorites = Favorite.find(params[:id])
   end
 
   # POST /favorites or /favorites.json
   def create
     @favorite = Favorite.new(favorite_params)
 
-    respond_to do |format|
       if @favorite.save
-        format.html { redirect_to @favorite, notice: "Favorite was successfully created." }
-        format.json { render :show, status: :created, location: @favorite }
+        redirect_to favorites_path
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @favorite.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /favorites/1 or /favorites/1.json

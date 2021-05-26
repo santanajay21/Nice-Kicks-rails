@@ -2,7 +2,6 @@ class Sneaker < ApplicationRecord
     #relationships 
     #validations
     belongs_to :brand
-    belongs_to :user
     has_many :favorites
     has_many :users , through: :favorites
     #accepts_nested_attributes_for :brand

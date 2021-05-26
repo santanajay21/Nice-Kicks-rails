@@ -19,6 +19,7 @@
     <%= link_to "All Sneakers", sneakers_path, class: "btn btn-primary" %> 
     <%= link_to "All Brands", brands_path, class: "btn btn-primary"  %> 
     <%= link_to "Create a New Brand", new_brand_path, class: "btn btn-primary" %> 
+    <%= link_to "Favorites", favorites_path, class: "btn btn-primary" %>
     <% if !logged_in? %>
    <p> <%= button_to "Log in with Google", "/auth/google_oauth2", class: "btn btn-light" %></p>
     <% else %>

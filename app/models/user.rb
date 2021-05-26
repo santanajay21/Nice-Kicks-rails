@@ -4,8 +4,6 @@ class User < ApplicationRecord
     has_many :sneakers , through: :favorites
 
 
-
-
     # validates :username , :password , presence: true
     #  validates :username, uniqueness: true
     #     {message: 'An account associated with %{value} already exists'}
